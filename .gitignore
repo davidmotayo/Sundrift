@@ -2,3 +2,7 @@ node_modules
 .vercel
 .node_modules.lock
 .env*
+node_modules
+.vercel
+.node_modules.lock
+.env*
