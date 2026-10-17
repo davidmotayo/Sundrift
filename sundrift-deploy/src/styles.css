@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1c1610;
+  --color-sand: #f3e2c4;
+  --color-clay: #d4652f;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Outfit", "Avenir Next", sans-serif;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-sand);
+  }
+}
+
+.touch-pad {
+  display: none;
+}
+
+@media (pointer: coarse), (max-width: 48rem) {
+  .touch-pad {
+    display: flex;
+  }
+}
+
+.pedal {
+  min-width: 4.75rem;
+  min-height: 3.5rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--color-sand) 28%, transparent);
+  background: var(--color-ink);
+  color: var(--color-sand);
+  font: 600 0.95rem / 1 var(--font-sans);
+}
+
+.pedal-gas {
+  background: var(--color-clay);
+  color: var(--color-ink);
+  border-color: transparent;
+}
+
+.pedal:active {
+  transform: translateY(1px);
+}
+
+.start-card {
+  animation: sundrift-rise 420ms ease;
+}
+
+@keyframes sundrift-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .start-card {
+    animation: none;
+  }
+
+  .pedal:active {
+    transform: none;
+  }
+}
